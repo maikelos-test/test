@@ -20,36 +20,7 @@ jobs:
         with:
           # required
           app-id: ${{ vars.GH_APP_ID }}
-          private-key: | 
-            -----BEGIN RSA PRIVATE KEY-----
-            MIIEpQIBAAKCAQEAtZsm7tS/UJ9EIA3EKXK+d4I3ucLhYrd1vI6h3D9EBZcIB4wp
-            ZDDQPdTvmXIoNUd8fHdbUAAd3KCWFqj8sPOB4SjJ3eoyCGiGlOwE3ecYMdkmj0mo
-            cZL3gpePuFvm4HAFv8X6NL2iQPKlQZg1mwXvrV3DcNP3hJJeKdSdHDbTjmOZDjmg
-            GUYAf2EsdRNbCW8Lchl3iARqEhWkR1i3JkwfEr9QPrSzuPgkhXxZPC/YSGUFj16u
-            kjehEGyE38Md2ZrSWlqIKQ/4AsvrhaK3JEevu7YvhNWH7aVnPmpng2kxpIt7bD1I
-            JVD6hjlIxYtya503XcaJdK1jkTkPtTF7c0xGCwIDAQABAoIBAQCzOcm0jpW41VWA
-            ZNWhKjK68vJYC/IvYGt7iTBIks9ozOMJv9PhoyMAwrMrtrPj0QcUNx8Q1uyhnoJB
-            HskzQT5+naiLr+Ns1Ots8XjkHnuMRoh9hO4OGELYyQb3pQs3mJaz6ojBoB0PB+j7
-            0WGl+rfNWunU4fw3A9SWZ9Qd0iX7MLm8BfO2aoveCniUtFWudP/rQTnpdZYQ38n/
-            XnJo7B437XENBu9CyTYne+6KZvYmhKQXEAu9a1jZGaD0C1Gd+YEqYwvbBePJqFU0
-            0YAUwWT6G+zl6m1HyOIudchKa8jKXKY18GzthiMO0WIm6uqcuKeYsg/GzgVhRLrN
-            GFCurzQxAoGBAOSjufZOHJWJO0YGkViwiV0jV+bU46YtYZWfA7JlR1HRgpOnS+kh
-            mHwicSCEvrUdXjKtwaH0ePiXc+8fj87Xc3OzC46QEmKUu2JoRw50pm92Lr8QVrxY
-            Dr+V0DVfGnmXhxThj8Pm0Sc5QxwkmdQL9ccE7EaH2FRjBLuCBXm76a6NAoGBAMtW
-            kzOKdlBmikAj/14bpbeNfKqdTBmbhOvOXg1AIEg3Tci/r8xJVaHYbIrecly4b/q1
-            ZLT6jqNDD2w9ZqdvOc9RA4qIry/eH/4OI/MSr8UzjEWlLJ753pbIs9FDaOKJQ2EL
-            qzOeU++e7G8DIaHDYGXumHn4dDZoYzlNMhxlz0z3AoGAKGOHwSvRPtUsJFWarVka
-            GtrYd01aHYvctiqN46CidaCV+XFPJpKpthv7cewhKCtU7YzmLK7cA8X1U+N2auqC
-            WYjiXL+0j7eIVnznOHWAxSXSYiwHtmOzz0Iuso7nRV1wHk8uL0QB5HToFvucNOob
-            85k6B8eNfnKzblAsmXGJeS0CgYEAmT72UbHY2V9uckiu/U345w1LF4rU/7elxdIS
-            MApUShjkFpfg9iWO1Bs4MrDTn+2g92IeNAdh2MmBpiHga+/3sbds48t/vKO7mM0v
-            atJ6hjUDUrnZlzbZ+unoG56iPZkVnt4ceRqqR72Ok1vYzQFidXAMmmAVtauWnGkB
-            i0VvpqECgYEAlI8wKoMDI5MI6FRqD10EeXgcEFHjuEvIaXRxp51ntZo5hUc5Ilak
-            v90bTAIgcpMVks/Jo0FQ7iVLjZwuHQnuGqqCvb32rhhYPVGE2sV/5hnFF0L4elFv
-            X22TiVmLGF1cBtbofARfFpTdEtSu5nf8LMlzmOmwF0tWzmlf50mNfpA=
-            -----END RSA PRIVATE KEY-----
-            
-              
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
       - uses: actions/checkout@v4
 
       - uses: actions/github-script@v7
@@ -57,6 +28,6 @@ jobs:
         with:
           result-encoding: string
           script: | 
-            octokit.rest.repos.listForOrg({
-              "maikelos-test",
+            github.rest.repos.listForOrg({
+              org: "maikelos-test"
             });
