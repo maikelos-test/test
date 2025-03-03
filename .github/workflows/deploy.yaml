@@ -28,6 +28,8 @@ jobs:
         with:
           result-encoding: string
           script: | 
-            github.rest.repos.listForOrg({
+            a = github.rest.repos.listForOrg({
               org: "maikelos-test"
             });
+
+            console.log(a)
