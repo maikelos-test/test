@@ -1,0 +1,33 @@
+name: GH build test
+
+on:
+  workflow_call:
+    inputs:
+      sth:
+        type: string
+        required: false
+        default: "noene"
+  push:
+    branches:
+      - '*'
+
+jobs:
+  auto-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          # required
+          app-id: ${{ vars.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_SECRET }}
+      - uses: actions/checkout@v4
+
+      - uses: actions/github-script@v7
+        id: gh-script
+        with:
+          result-encoding: string
+          script: | 
+            octokit.rest.repos.listForOrg({
+              "maikelos-test",
+            });
