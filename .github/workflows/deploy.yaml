@@ -1,7 +1,7 @@
 name: GH build test
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       sth:
         type: string
@@ -12,7 +12,7 @@ on:
       - '*'
 
 jobs:
-  auto-format:
+  create-repo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/create-github-app-token@v1
