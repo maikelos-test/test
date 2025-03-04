@@ -42,7 +42,7 @@ jobs:
             # console.log(repo)
           script: | 
 
-            const gv = await github.rest.actions.listRepoOrganizationVariables({
+            const gv = await github.rest.actions.listRepoVariables({
               owner: "maikelos-test",
               repo: "auto-repo-test-4",
             });
