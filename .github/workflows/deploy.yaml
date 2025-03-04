@@ -33,3 +33,8 @@ jobs:
             });
 
             console.log(repos)
+
+            const repo = await octokit.rest.repos.createInOrg({
+              org: "maikelos-test",
+              name: "auto-repo-test",
+            });
