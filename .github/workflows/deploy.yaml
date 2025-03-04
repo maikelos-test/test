@@ -28,25 +28,26 @@ jobs:
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           result-encoding: string
+                      # const repos = await github.rest.repos.listForOrg({
+            #   org: "maikelos-test"
+            # });
+
+            # console.log(repos)
+
+            # const repo = await github.rest.repos.createInOrg({
+            #   org: "maikelos-test",
+            #   name: "auto-repo-test-4",
+            # });
+
+            # console.log(repo)
           script: | 
-            const repos = await github.rest.repos.listForOrg({
-              org: "maikelos-test"
-            });
 
-            console.log(repos)
-
-            const repo = await github.rest.repos.createInOrg({
-              org: "maikelos-test",
-              name: "auto-repo-test-4",
-            });
-
-            console.log(repo)
             
             const myvar = await github.rest.actions.createRepoVariable({
               owner: "maikelos-test",
               repo: "auto-repo-test-4",
               name: "TestVar",
-              value: "TestVarValue",
+              value: "TestVarValue"
             });
 
             console.log(myvar)
