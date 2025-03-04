@@ -37,14 +37,14 @@ jobs:
 
             const repo = await github.rest.repos.createInOrg({
               org: "maikelos-test",
-              name: "auto-repo-test-3",
+              name: "auto-repo-test-4",
             });
 
             console.log(repo)
             
             const myvar = await github.rest.actions.createRepoVariable({
               owner: "maikelos-test",
-              repo: "auto-repo-test-3",
+              repo: "auto-repo-test-4",
               name: "TestVar",
               value: "TestVarValue",
             });
