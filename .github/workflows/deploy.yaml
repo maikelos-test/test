@@ -26,7 +26,7 @@ jobs:
       - uses: actions/github-script@v7
         id: gh-script
         with:
-          github-token: ${{ secrets.GH_PAT }} # ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.GH_PAT_NEW }} # ${{ steps.app-token.outputs.token }}
           result-encoding: string
                       # const repos = await github.rest.repos.listForOrg({
             #   org: "maikelos-test"
@@ -52,7 +52,7 @@ jobs:
             const myvar = await github.rest.actions.createRepoVariable({
               owner: "maikelos-test",
               repo: "auto-repo-test-4",
-              name: "TestVar",
+              name: "TestVar2",
               value: "TestVarValue"
             });
 
