@@ -37,5 +37,5 @@ jobs:
 
             const repo = await github.rest.repos.createInOrg({
               org: "maikelos-test",
-              name: "auto-repo-test",
+              name: "auto-repo-test-2",
             });
