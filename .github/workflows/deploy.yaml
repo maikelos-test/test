@@ -41,6 +41,12 @@ jobs:
 
             # console.log(repo)
           script: | 
+            const repo = await github.rest.repos.createInOrg({
+              org: "maikelos-test",
+              name: "auto-repo-test-5",
+            });
+
+            console.log(repo)
 
             const gv = await github.rest.actions.listRepoVariables({
               owner: "maikelos-test",
